@@ -1,0 +1,5 @@
+module_pypi:
+  package: xia-module-pypi
+  class: Pypi
+  events:
+    init:
