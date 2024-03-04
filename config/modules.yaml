@@ -5,4 +5,3 @@ module_pypi:
     init:
       cicd:
         github:
-          - deploy-pypi.yml

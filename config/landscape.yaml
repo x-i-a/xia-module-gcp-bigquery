@@ -1,8 +1,15 @@
 environments:
   dev:
     match_branch: refs/heads/main
+    pipelines:
+      - local-test
   sit:
     match_branch: refs/tags/.*
+    pipelines:
+      - deploy
+      - remote-test
   prd:
     match_branch: refs/tags/.*
     match_event: release
+    pipelines:
+      - publish
