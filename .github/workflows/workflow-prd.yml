@@ -1,0 +1,13 @@
+name: Workflow - dev
+
+on:
+  release:
+
+jobs:
+  publish:
+    if: false
+    environment: dev
+    runs-on: ubuntu-latest
+    steps:
+    - id: checkout-code
+      uses: actions/checkout@v4
