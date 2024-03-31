@@ -11,6 +11,10 @@ init:
 	pip install PyYAML xia-framework keyring setuptools wheel jinja2; \
     pip install keyrings.google-artifactregistry-auth; \
 
-create: init
+init-module: init
 	@. .venv/bin/activate; \
-	python main.py prepare
+	@if [ -z "$(module_name)" ]; then \
+	  echo "Module name not specified. Usage: make init-module module_name=<module_name>"; \
+	else \
+		python main.py init-module -n $(module_name)
+	fi
