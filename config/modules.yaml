@@ -3,5 +3,3 @@ module_pypi:
   class: Pypi
   events:
     init:
-      cicd:
-        github:

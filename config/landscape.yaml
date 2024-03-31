@@ -1,15 +1,16 @@
+cicd: github
 environments:
   dev:
     match_branch: refs/heads/main
-    pipelines:
+    stages:
       - local-test
   sit:
     match_branch: refs/tags/.*
-    pipelines:
+    stages:
       - deploy
       - remote-test
   prd:
     match_branch: refs/tags/.*
     match_event: release
-    pipelines:
+    stages:
       - publish
