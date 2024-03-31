@@ -16,5 +16,5 @@ init-module: init
 	@if [ -z "$(module_name)" ]; then \
 	  echo "Module name not specified. Usage: make init-module module_name=<module_name>"; \
 	else \
-		python main.py init-module -n $(module_name)
+		python main.py init-module -n $(module_name); \
 	fi
