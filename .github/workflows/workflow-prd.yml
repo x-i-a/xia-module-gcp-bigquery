@@ -1,4 +1,4 @@
-name: Workflow - dev
+name: Workflow - prd
 
 on:
   release:
@@ -6,7 +6,7 @@ on:
 jobs:
   publish:
     if: false
-    environment: dev
+    environment: prd
     runs-on: ubuntu-latest
     steps:
     - id: checkout-code
