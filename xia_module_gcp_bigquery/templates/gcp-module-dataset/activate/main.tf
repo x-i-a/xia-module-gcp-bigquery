@@ -20,7 +20,7 @@ locals {
   ]))
 }
 
-resource "google_project_service" "bigquery" {
+resource "google_project_service" "bigquery_api" {
   service = "bigquery.googleapis.com"
   disable_on_destroy = false
 }
