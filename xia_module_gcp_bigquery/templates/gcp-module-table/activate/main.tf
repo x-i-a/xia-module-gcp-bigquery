@@ -37,6 +37,11 @@ resource "google_project_iam_custom_role" "gcp_module_table_deployer_role" {
   ]
 }
 
+resource "google_project_service" "bigquery" {
+  service = "bigquery.googleapis.com"
+  disable_on_destroy = false
+}
+
 resource "google_project_iam_member" "gcp_module_table_deployer_role_member" {
   for_each = { for s in local.all_role_attribution : "${s.app_name}-${s.env_name}" => s }
 

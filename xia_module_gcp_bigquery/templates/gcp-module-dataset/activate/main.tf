@@ -20,6 +20,11 @@ locals {
   ]))
 }
 
+resource "google_project_service" "bigquery" {
+  service = "bigquery.googleapis.com"
+  disable_on_destroy = false
+}
+
 resource "google_project_iam_custom_role" "gcp_module_dataset_deployer_role" {
   for_each = local.environment_dict
 
