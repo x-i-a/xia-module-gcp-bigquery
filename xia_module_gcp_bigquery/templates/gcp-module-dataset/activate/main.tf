@@ -1,6 +1,6 @@
 locals {
   project = yamldecode(file(var.project_file))
-  module_name = replace(substr(basename(path.module), 9, length(basename(path.module)) - 9), "-", "_")
+  module_name = substr(basename(path.module), 9, length(basename(path.module)) - 9)
   landscape = yamldecode(file(var.landscape_file))
   applications = yamldecode(file(var.applications_file))
   project_prefix = local.project["project_prefix"]
