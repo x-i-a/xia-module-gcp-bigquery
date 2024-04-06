@@ -1,9 +1,4 @@
-variable "landscape_file" {
+variable "content" {
   type = string
-  description = "Landscape file"
-}
-
-variable "applications_file" {
-  type = string
-  description = "Application config file"
+  description = "Content file"
 }
