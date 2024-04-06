@@ -17,6 +17,12 @@ jobs:
       name: Checkout code
       uses: actions/checkout@v4
 
+    - id: prepare-modules
+      name: Prepare modules
+      run: |
+        pip install xia-framework xia-module
+        python main.py prepare
+
     - id: auth-gcp-oidc
       name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
