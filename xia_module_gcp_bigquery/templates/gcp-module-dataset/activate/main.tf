@@ -36,10 +36,10 @@ resource "google_project_iam_custom_role" "gcp_module_dataset_deployer_role" {
   title       = "GCP Bigquery Dataset Deployer Role"
   description = "GCP Bigquery Dataset Deployer Role"
   permissions = [
-    "bigquery.datasets.create",
-    "bigquery.datasets.get",
-    "bigquery.datasets.update",
-    "bigquery.datasets.delete"
+    # "bigquery.datasets.create",
+    # "bigquery.datasets.get",
+    # "bigquery.datasets.update",
+    # "bigquery.datasets.delete"
   ]
 }
 
