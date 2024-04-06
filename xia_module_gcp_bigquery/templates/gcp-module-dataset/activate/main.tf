@@ -21,6 +21,9 @@ locals {
 }
 
 resource "google_project_service" "bigquery_api" {
+  for_each = local.environment_dict
+
+  project     = "${local.project_prefix}${each.key}"
   service = "bigquery.googleapis.com"
   disable_on_destroy = false
 }
