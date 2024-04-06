@@ -38,8 +38,9 @@ resource "google_project_iam_custom_role" "gcp_module_dataset_deployer_role" {
   permissions = [
     # "bigquery.datasets.create",
     # "bigquery.datasets.get",
-    "bigquery.datasets.update",
+    # "bigquery.datasets.update",
     # "bigquery.datasets.delete"
+    "bigquery.tables.list"
   ]
 }
 
