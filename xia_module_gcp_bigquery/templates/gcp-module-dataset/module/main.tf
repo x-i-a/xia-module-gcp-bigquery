@@ -1,3 +1,5 @@
+provider "google" {}
+
 locals {
   contents         = yamldecode(file(var.content))
 }
