@@ -16,5 +16,13 @@ init-module: init
 	  echo "Module name not specified. Usage: make init-module module_name=<module_name>"; \
 	else \
 	  . .venv/bin/activate; \
-	  python main.py init-module -n $(module_name); \
+	  python -m xia_framework.application init-module -n $(module_name); \
+	fi
+
+upgrade-module: init
+	@if [ -z "$(module_name)" ]; then \
+	  echo "Module name not specified. Usage: make upgrade-module module_name=<module_name>"; \
+	else \
+	  . .venv/bin/activate; \
+	  python -m xia_framework.application upgrade-module -n $(module_name); \
 	fi
