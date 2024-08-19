@@ -1,26 +1,4 @@
 locals {
-  project = yamldecode(file(var.project_file))
-  module_name = substr(basename(path.module), 9, length(basename(path.module)) - 9)
-  landscape = yamldecode(file(var.landscape_file))
-  applications = yamldecode(file(var.applications_file))
-  project_prefix = local.project["project_prefix"]
-  environment_dict = local.landscape["environments"]
-  application_list = lookup(lookup(local.landscape["modules"], local.module_name, {}), "applications", [])
-}
-
-locals {
-  all_role_attribution = toset(flatten([
-    for env_name, env in local.environment_dict : [
-      for app_name in local.application_list : {
-        app_name          = app_name
-        env_name          = env_name
-        project_id        = "${local.project_prefix}${env_name}"
-      }
-    ]
-  ]))
-}
-
-locals {
   module_name = coalesce(var.module_name, substr(basename(path.module), 9, length(basename(path.module)) - 9))
 
   landscape = var.landscape
