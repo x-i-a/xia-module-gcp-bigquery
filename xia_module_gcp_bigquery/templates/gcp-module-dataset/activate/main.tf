@@ -38,7 +38,7 @@ resource "google_project_iam_custom_role" "gcp_module_dataset_deployer_role" {
 }
 
 resource "google_project_iam_member" "gcp_module_table_dataset_role_member" {
-  for_each = app_configuration
+  for_each = local.app_configuration
 
   project = var.gcp_projects[each.value["env_name"]]["project_id"]
   role    = google_project_iam_custom_role.gcp_module_dataset_deployer_role[each.value["env_name"]].id

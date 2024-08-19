@@ -36,7 +36,7 @@ resource "google_project_service" "bigquery_api" {
 }
 
 resource "google_project_iam_member" "gcp_module_table_deployer_role_member" {
-  for_each = app_configuration
+  for_each = local.app_configuration
 
   project = each.value["project_id"]
   role    = google_project_iam_custom_role.gcp_module_table_deployer_role[each.value["env_name"]].id
