@@ -1,4 +1,12 @@
+provider "google" {
+  alias = "activate-google-dataset"
+}
+
 module "activate_gcp_module_dataset" {
+  providers = {
+    google = google.activate-google-dataset
+  }
+
   source = "../../modules/activate-gcp-module-dataset"
 
   landscape = local.landscape
