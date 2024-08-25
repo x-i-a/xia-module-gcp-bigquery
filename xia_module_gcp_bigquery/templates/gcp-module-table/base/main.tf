@@ -1,4 +1,12 @@
+provider "google" {
+  alias = "google-table"
+}
+
 module "gcp_module_table" {
+  providers = {
+    google = google.google-table
+  }
+
   source = "../../modules/gcp-module-table"
 
   landscape_file = "../../../config/landscape.yaml"

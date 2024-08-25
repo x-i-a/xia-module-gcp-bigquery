@@ -1,4 +1,12 @@
+provider "google" {
+  alias = "activate-google-table"
+}
+
 module "activate_gcp_module_table" {
+  providers = {
+    google = google.activate-google-table
+  }
+
   source = "../../modules/activate-gcp-module-table"
 
   landscape = local.landscape

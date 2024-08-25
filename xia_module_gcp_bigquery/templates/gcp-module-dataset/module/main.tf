@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    github = {
+      source  = "hashicorp/google"
+    }
+  }
+}
+
 locals {
   contents         = yamldecode(file(var.content))
 }
