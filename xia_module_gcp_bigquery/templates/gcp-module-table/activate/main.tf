@@ -31,6 +31,9 @@ resource "google_project_iam_custom_role" "gcp_module_table_deployer_role" {
 }
 
 resource "google_project_service" "bigquery_api" {
+  for_each = local.environment_dict
+
+  project  = var.gcp_projects[each.key]["project_id"]
   service = "bigquery.googleapis.com"
   disable_on_destroy = false
 }
