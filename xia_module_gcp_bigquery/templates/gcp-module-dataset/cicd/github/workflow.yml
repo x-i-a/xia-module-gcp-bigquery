@@ -20,7 +20,7 @@ jobs:
       name: Prepare modules
       run: |
         pip install xia-framework xia-module
-        python -m xia_framework.application prepare -e ${{ vars.env_name }}
+        python -m xia_framework.application plan -e ${{ vars.env_name }}
 
     - id: auth-gcp-oidc
       name: Authenticate to Google Cloud
@@ -34,6 +34,7 @@ jobs:
       name: Apply Terraform
       uses: x-i-a/action-gcs-terraform-apply@main
       with:
+        tf_bucket: ${{ vars.tf_bucket }}
         cosmos_name: ${{ vars.cosmos_name }}
         realm_name: ${{ vars.realm_name }}
         foundation_name: ${{ vars.foundation_name }}
