@@ -7,7 +7,8 @@ terraform {
 }
 
 locals {
-  contents         = yamldecode(file(var.content))
+  module_name = coalesce(var.module_name, basename(path.module))
+  contents    = yamldecode(file(var.content))
 }
 
 resource "google_bigquery_dataset" "app_datasets" {

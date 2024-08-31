@@ -1,4 +1,28 @@
-variable "content" {
+variable "module_name" {
   type = string
-  description = "Content file"
+  description = "Module Name"
+  default = ""
 }
+
+variable "config_file" {
+  type = string
+  description = "Module config file"
+  default = ""
+}
+
+variable "config_dir" {
+  type = string
+  description = "Module config dictionary"
+  default = ""
+}
+
+variable "landscape" {
+  type = any
+  description = "Landscape Configuration"
+}
+
+variable "applications" {
+  type = map(any)
+  description = "Application Configuration"
+}
+

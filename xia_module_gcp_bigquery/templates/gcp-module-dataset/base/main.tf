@@ -9,6 +9,8 @@ module "gcp_module_dataset" {
 
   source = "../../modules/gcp-module-dataset"
 
-  content = "../../content/datasets.yaml"
-
+  config_dir = "../../../config/gcp/datasets"
+  landscape = local.landscape
+  applications = local.applications
+  environment_dict = local.environment_dict
 }
