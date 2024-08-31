@@ -1,0 +1,5 @@
+# dataset_id: sample_dataset_1
+# description: Sample Dataset 1
+# friendly_name: Sample Dataset
+# location: eu
+# delete_contents_on_destroy: false
