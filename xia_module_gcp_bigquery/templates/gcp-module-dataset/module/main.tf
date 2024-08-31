@@ -8,13 +8,17 @@ terraform {
 
 locals {
   module_name = coalesce(var.module_name, basename(path.module))
-  contents    = yamldecode(file(var.content))
+  dataset_cfgs = { for file in fileset(var.config_dir, "**/*.yaml") :
+      trimsuffix(basename(file, ".yaml"), ".yaml") => yamldecode(file("${var.config_dir}/${file}"))
+  }
 }
 
 resource "google_bigquery_dataset" "app_datasets" {
-  dataset_id          = local.contents.dataset_id
-  description         = local.contents.description
-  friendly_name       = local.contents.friendly_name
-  location            = local.contents.location
-  delete_contents_on_destroy = local.contents.delete_contents_on_destroy
+  for_each = local.dataset_cfgs
+
+  dataset_id          = each.value["dataset_id"]
+  description         = each.value["description"]
+  friendly_name       = each.value["friendly_name"]
+  location            = each.value["location"]
+  delete_contents_on_destroy = each.value["delete_contents_on_destroy"]
 }
