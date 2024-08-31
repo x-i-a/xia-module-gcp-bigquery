@@ -34,7 +34,7 @@ jobs:
       name: Apply Terraform
       uses: x-i-a/action-gcs-terraform-apply@main
       with:
-        tf_bucket: ${{ vars.tf_bucket }}
+        tf_bucket_name: ${{ vars.tf_bucket_name }}
         cosmos_name: ${{ vars.cosmos_name }}
         realm_name: ${{ vars.realm_name }}
         foundation_name: ${{ vars.foundation_name }}
