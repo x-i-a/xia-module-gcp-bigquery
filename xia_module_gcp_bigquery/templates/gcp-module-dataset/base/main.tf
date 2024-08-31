@@ -10,6 +10,7 @@ module "gcp_module_dataset" {
   source = "../../modules/gcp-module-dataset"
 
   config_dir = "../../../config/gcp/datasets"
+  config_file = "../../../config/platform/gcp-project.yaml"
   landscape = local.landscape
   environment_dict = local.environment_dict
   current_env = local.current_env
