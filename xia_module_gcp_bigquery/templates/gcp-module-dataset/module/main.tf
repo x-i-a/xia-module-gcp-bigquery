@@ -8,7 +8,7 @@ terraform {
 
 locals {
   module_name = coalesce(var.module_name, basename(path.module))
-  project_cfg = yamldecode(var.config_file)
+  project_cfg = yamldecode(file(var.config_file))
   dataset_cfgs = { for file in fileset(var.config_dir, "**/*.yaml") :
       trimsuffix(basename(file), ".yaml") => yamldecode(file("${var.config_dir}/${file}"))
   }
