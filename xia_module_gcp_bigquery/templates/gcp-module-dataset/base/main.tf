@@ -12,4 +12,5 @@ module "gcp_module_dataset" {
   config_dir = "../../../config/gcp/datasets"
   landscape = local.landscape
   environment_dict = local.environment_dict
+  current_env = local.current_env
 }

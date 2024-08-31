@@ -25,3 +25,8 @@ variable "environment_dict" {
   type = any
   description = "Environment Configuration"
 }
+
+variable "current_env" {
+  type = string
+  description = "Current Environment Name"
+}
