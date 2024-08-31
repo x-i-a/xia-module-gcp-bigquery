@@ -1,1 +1,1 @@
-PyYAML
+xia-module
