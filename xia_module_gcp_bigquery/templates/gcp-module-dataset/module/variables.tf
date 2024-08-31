@@ -22,6 +22,6 @@ variable "landscape" {
 }
 
 variable "environment_dict" {
-  type = map(any)
+  type = any
   description = "Environment Configuration"
 }
