@@ -21,6 +21,9 @@ jobs:
       name: Publish PYPI
       uses: ./.github/actions/module-pypi/publish-pypi
 
+    - name: Publish release distributions to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+
   remote-test:
     if: false
     environment: sit
