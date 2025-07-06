@@ -13,5 +13,4 @@ module "gcp_module_dataset" {
   config_file = "../../../config/platform/gcp-project.yaml"
   landscape = local.landscape
   environment_dict = local.environment_dict
-  current_env = local.current_env
 }
